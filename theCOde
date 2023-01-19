@@ -1,0 +1,16 @@
+import requests
+
+url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest"
+parameters = {
+  "symbol": "BTC"
+}
+headers = {
+  "Accepts": "application/json",
+  "X-CMC_PRO_API_KEY": "YOUR_API_KEY"
+}
+
+response = requests.get(url, headers=headers, params=parameters)
+
+data = response.json()
+price = data["data"]["BTC"]["quote"]["USD"]["price"]
+print("The current price of Bitcoin is $" + str(price))
