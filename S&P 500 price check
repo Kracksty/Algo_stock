@@ -1,0 +1,8 @@
+import yfinance as yf
+
+# Get a list of all the S&P 500 company tickers
+tickers = yf.Tickers('^GSPC')
+
+# Loop through each ticker and get the current price
+for ticker in tickers.tickers:
+    print(ticker.ticker, ticker.info['regularMarketPrice'])
